@@ -1,20 +1,15 @@
 import Image from "next/image";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@components/ui/navigation-menu"
+import Input from "@/components/ui/Input";
 
 
 export default function Home() {
   return ( 
-    <div>
-      <h1 className="text-white text-center">Hello</h1>
-    </div>
+    <>
+    <main className="z-50 mt-[200px] flex flex-col justify-center items-center">
+      <h1 className="text-[#013956] font-bold text-5xl text-center">PhishBust</h1>
+      <p className="text-[#013A56] font-normal text-2xl text-center">Machine learning based phishing detection</p>
+      <Input/>
+    </main>
+    </>
    );
 }
