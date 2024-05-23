@@ -2,28 +2,20 @@ import React from 'react'
 
 const Input = () => {
   return (
-    <div className="flex w-full max-w-md z-20 mt-20">
+    <div className="flex w-full max-w-2xl h-14 z-20 mt-20 shadow ">
     <input
       type="text"
-      className="flex-grow text-black p-2 rounded-l-md border border-gray-300 focus:outline-none"
-      placeholder="www.example.com"
+      className="flex-1 text-black p-5 rounded-l-md border border-gray-300 focus:outline-none"
+      placeholder="Enter a link"
 
     />
-    <button className="bg-green-500 hover:bg-green-600 text-white p-2 rounded-r-md">
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          d="M5 12h14M12 5l7 7-7 7"
-        ></path>
-      </svg>
+    <button className="w-[60px] bg-green-500 hover:bg-green-600 text-white flex justify-center items-center rounded-r-md">
+    <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M30 55C43.8071 55 55 43.8071 55 30C55 16.1929 43.8071 5 30 5C16.1929 5 5 16.1929 5 30C5 43.8071 16.1929 55 30 55Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+<path d="M30 40L40 30L30 20" stroke="white" stroke-width="2" stroke-linecap="round" strokeLinejoin="round"/>
+<path d="M20 30H40" stroke="white" stroke-width="2" strokeLinecap="round" strokeLinejoin="round"/>
+</svg>
+
     </button>
   </div>
   )
