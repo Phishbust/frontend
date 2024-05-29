@@ -10,11 +10,10 @@ const navbar = () => {
     <Link  href="/"className='flex flex-row items-center '>
     <Image
       src="/PhishBustW.png"
-      width={75}
+      width={50}
       height={50}
       alt="Picture of the author"
     />
-    <h1 className='text-xl font-bold'>Phishbust</h1>
     </Link>
         <ul className={"list-none flex flex-row gap-10 text-white text-center " + (burger ? "max-md:hidden":"max-md:block max-md:flex-col")}>
         <li className='hover:bg-slate-200 hover:text-black p-2 rounded'><Link href={"#"}>Home</Link></li>
