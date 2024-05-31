@@ -1,6 +1,11 @@
+"use client"
 import React from 'react'
 import Console from '@/components/ui/Console'
+
 const Input = () => {
+  const [url,Seturl] = React.useState("")
+  const [status,Setstatus] = React.useState("")
+  const [submitted, setsubmitted] = React.useState(true)
   return (
     <>
     <div className="flex w-full max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
@@ -18,7 +23,8 @@ const Input = () => {
 </svg>
     </button>
   </div>
-  <Console/>
+  {submitted && (<><Console Url={url} Status={"safe"} />
+  <button type="button" className='bg-[#1D8641] rounded-[7px] p-[10px] z-20 mt-[27px]'>Download Result</button></>)}
   </>
   )
 }
