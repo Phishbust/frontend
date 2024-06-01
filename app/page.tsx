@@ -3,7 +3,7 @@ import Input from "@/components/ui/Input";
 import About from "@/components/ui/About";
 import Howitworks from "@components/ui/Howitworks";
 import Contact from "@components/ui/Contact";
-
+import Footer from "@components/ui/Footer";
 export default function Home() {
   return ( 
     <>
@@ -21,6 +21,9 @@ export default function Home() {
     <section>
       <Contact/>
     </section>
+    <footer>
+      <Footer/>
+    </footer>
     </>
    );
 }

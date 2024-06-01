@@ -8,7 +8,7 @@ const Input = () => {
   const [submitted, setsubmitted] = React.useState(true)
   return (
     <>
-    <div className="flex w-full max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
+    <div className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
     <input
       type="text"
       className="flex-1 text-black p-5 rounded-l-md border border-gray-300 focus:outline-none"

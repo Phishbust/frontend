@@ -2,8 +2,45 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <div className='z-20 bg-[#BEC3C6]'>
-        Contact
+    <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center z-20">
+        <div className="max-w-lg w-full relative">
+        <svg width="300" height="300" viewBox="0 0 381 401" fill="none" className='absolute top-[-120px] left-[-200px]' xmlns="http://www.w3.org/2000/svg">
+            <circle cx="180.5" cy="200.5" r="200" stroke="#0284C7"/>
+            <circle cx="180.5" cy="200.5" r="151" stroke="#0284C7"/>
+            <circle cx="180.5" cy="200.5" r="105" stroke="#0284C7"/>
+        </svg>
+            <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
+            <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don't hesitate in getting in touch with us!</p>
+        </div>
+      <form className="space-y-4 z-20">
+          <div className="flex space-x-4">
+            <input 
+              type="text" 
+              placeholder="First Name" 
+              className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+            />
+            <input 
+              type="text" 
+              placeholder="Last Name" 
+              className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+            />
+          </div>
+          <input 
+            type="email" 
+            placeholder="Email" 
+            className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+          />
+          <textarea 
+            placeholder="Message" 
+            className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded h-32"
+          />
+          <button 
+            type="submit" 
+            className="bg-blue-600 text-white font-bold p-2 rounded w-full"
+          >
+            Submit
+          </button>
+        </form>
     </div>
   )
 }
