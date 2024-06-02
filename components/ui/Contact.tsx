@@ -75,6 +75,7 @@ const Contact = () => {
           <button 
             type="submit"
             className="bg-blue-600 text-white font-bold p-2 rounded w-full"
+            disabled={!Firstname || !Email || !Lastname || !message}
           >
             Submit
           </button>
