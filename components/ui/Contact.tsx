@@ -1,6 +1,36 @@
+"use client"
 import React from 'react'
 
+
 const Contact = () => {
+      const [Firstname, setFirstname] = React.useState("");
+      const [Lastname, setLastname] = React.useState("");
+      const [Email, setEmail] = React.useState("");
+      const [message, setmessage] = React.useState("");
+      const HandleSubmit = (e) => {
+            e.preventDefault();
+            sendEmail(Firstname, Email, Lastname, message);
+      };
+      const sendEmail = (Firstname, Email,Lastname,message)=>{
+            
+            if(!Firstname || !Email || !Lastname || !message){
+                  alert("Please fill all the fields");
+            };
+            const data = {
+                  name  :Firstname+" "+Lastname,
+                  email:Email,
+                  subject:"Contact Form",
+                  message:message
+            };
+            fetch("/api/email", {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: { "Content-Type": "application/json", Accept: "application/json" },
+            }).then((res) => {
+              if (!res.ok) throw new Error("Failed to send message");
+              return res.json();
+            });
+           };
   return (
     <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center z-20">
         <div className="max-w-lg w-full relative">
@@ -12,30 +42,38 @@ const Contact = () => {
             <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
             <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don't hesitate in getting in touch with us!</p>
         </div>
-      <form className="space-y-4 z-20">
+      <form onSubmit={HandleSubmit} className="space-y-4 z-20">
           <div className="flex space-x-4">
             <input 
               type="text" 
-              placeholder="First Name" 
+              placeholder="First Name"
+              value={Firstname}
+              onChange={(e) => setFirstname(e.target.value)} 
               className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
             />
             <input 
               type="text" 
-              placeholder="Last Name" 
+              placeholder="Last Name"
+              value={Lastname}
+              onChange={(e) => setLastname(e.target.value)}
               className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
             />
           </div>
           <input 
             type="email" 
-            placeholder="Email" 
+            placeholder="Email"
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)} 
             className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
           />
           <textarea 
-            placeholder="Message" 
+            placeholder="Message"
+            value={message}
+            onChange={(e) => setmessage(e.target.value)}
             className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded h-32"
           />
           <button 
-            type="submit" 
+            type="submit"
             className="bg-blue-600 text-white font-bold p-2 rounded w-full"
           >
             Submit
@@ -45,4 +83,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default Contact;
