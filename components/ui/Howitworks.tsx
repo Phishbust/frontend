@@ -4,7 +4,7 @@ import how from '@/public/how.png'
 const Howitworks = () => {
   return (
     <div className=' text-black flex flex-col lg:flex-row z-20 m-[60px] justify-around gap-20'>
-        <Image src={how} alt="about"/>
+        <Image src={how} className='w-auto h-auto' alt="about"/>
     <div>
     <h1 className='text-[#013956] text-5xl font-bold'>How it works</h1>
     <p className='text-[#013956] text-xl md:max-w-[40vw]'>

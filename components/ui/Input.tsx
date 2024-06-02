@@ -5,7 +5,7 @@ import Console from '@/components/ui/Console'
 const Input = () => {
   const [url,Seturl] = React.useState("")
   const [status,Setstatus] = React.useState("")
-  const [submitted, setsubmitted] = React.useState(true)
+  const [submitted, setsubmitted] = React.useState(false)
   return (
     <>
     <div className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
