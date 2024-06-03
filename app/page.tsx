@@ -5,6 +5,7 @@ import Howitworks from "@components/ui/Howitworks";
 import Contact from "@components/ui/Contact";
 import Footer from "@components/ui/Footer";
 export default function Home() {
+  
   return ( 
     <>
     <main className="z-50 h-screen flex flex-col justify-center items-center">
@@ -12,10 +13,10 @@ export default function Home() {
       <p className="text-[#013A56] font-normal text-2xl text-center">Machine learning based phishing detection</p>
       <Input/>
     </main>
-    <article className="" id="about-us">
+    <article className="z-20" id="about-us">
       <About/>
     </article>
-    <article className="" id="how-it-works">
+    <article className="z-20" id="how-it-works">
       <Howitworks/>
     </article>
     <section id="contact-us">

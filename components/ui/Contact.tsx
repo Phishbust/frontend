@@ -7,9 +7,14 @@ const Contact = () => {
       const [Lastname, setLastname] = React.useState("");
       const [Email, setEmail] = React.useState("");
       const [message, setmessage] = React.useState("");
-      const HandleSubmit = (e) => {
-            e.preventDefault();
-            sendEmail(Firstname, Email, Lastname, message);
+      const [isloading,loading] = React.useState(true);
+      const HandleSubmit = async (e) => {
+            loading(true);
+            await sendEmail(Firstname, Email, Lastname, message);
+            setFirstname("");
+            setLastname("");
+            setEmail("");
+            setmessage("");
       };
       const sendEmail = (Firstname, Email,Lastname,message)=>{
             
@@ -40,9 +45,9 @@ const Contact = () => {
             <circle cx="180.5" cy="200.5" r="105" stroke="#0284C7"/>
         </svg>
             <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
-            <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don't hesitate in getting in touch with us!</p>
+            <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don&apos;t hesitate in getting in touch with us!</p>
         </div>
-      <form onSubmit={HandleSubmit} className="space-y-4 z-20">
+      <form onSubmit={(e)=>HandleSubmit(e).then(()=>loading(false))} className="space-y-4 z-20">
           <div className="flex space-x-4">
             <input 
               type="text" 
@@ -74,10 +79,10 @@ const Contact = () => {
           />
           <button 
             type="submit"
-            className="bg-blue-600 text-white font-bold p-2 rounded w-full"
+            className="bg-blue-600 text-white font-bold p-2 rounded w-full disabled:bg-gray-800 disabled:cursor-not-allowed"
             disabled={!Firstname || !Email || !Lastname || !message}
           >
-            Submit
+           Submit
           </button>
         </form>
     </div>

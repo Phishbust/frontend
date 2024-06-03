@@ -20,6 +20,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)"],
+        'fira-code': ['"Fira Code"', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",

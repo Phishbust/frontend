@@ -3,7 +3,7 @@ import {useState} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const navbar = () => {
+const navbar:React.FC = () => {
     const [burger, setBurger] = useState(true)
     const handleScroll = (e, targetId) => {
       e.preventDefault();

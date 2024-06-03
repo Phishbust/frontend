@@ -6,7 +6,7 @@ const About = () => {
     <div className=' text-black flex flex-col-reverse lg:flex-row z-20 m-[60px] justify-around gap-20'>
       <div>
       <h1 className='text-[#013956] text-5xl font-bold'>About us</h1>
-      <p className='text-[#013956] text-xl md:max-w-[40vw]'>
+      <p className='text-[#013956] text-xl lg:max-w-[40vw]'>
       We are a passionate team of students from Fırat University,
       specializing in the dynamic fields of Artificial Intelligence and Data Engineering.
       Our collective expertise spans various aspects of data science,
