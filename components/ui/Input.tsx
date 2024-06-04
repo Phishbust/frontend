@@ -31,8 +31,26 @@ const whois = async (link:string) =>{
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    console.log(result);
     return result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+const phishing = async (link:string) =>{
+  const url = `https://exerra-phishing-check.p.rapidapi.com/?url=${link}`;
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': 'a5069430ddmsh9a5aa822feb0737p1599ccjsn6fac9b4bf2cd',
+      'X-RapidAPI-Host': 'exerra-phishing-check.p.rapidapi.com'
+    }
+  };
+  
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return result.data.isScam;
   } catch (error) {
     console.error(error);
   }
@@ -46,12 +64,19 @@ const Input = () => {
   const handlesubmit = async () =>{
     setsubmitted(false);
     const result = await whois(url);
+    const phish = await phishing(url);
     setWho(result);
+    Setstatus(phish)
     setsubmitted(true);
   }
   const handleClick = async () => {
+    const json_to_download = {
+      url: url,
+      phishing: status,
+      whois: who
+    }
     try {
-      const json = JSON.stringify(who, null, 2);
+      const json = JSON.stringify(json_to_download, null, 2);
       const blob = new Blob([json], { type: 'application/json' });
 
       const link = document.createElement('a');

@@ -20,7 +20,7 @@ const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
     <h1 className='text-[#5D666B]'>{'C://Phishbust > '}Node PhishingChecker.js</h1>,
     <p>Welcome to Phishbust!</p>,
     <p>Your url is: {Url}</p>,
-    Status ? <p className='text-[#8BFE61]'>Your url is safe!</p> : <p className='text-[#FE616A]'>Your url is not safe!</p>
+    Status ? <p className='text-[#FE616A]'>Your url is not safe!</p>: <p className='text-[#8BFE61]'>Your url is safe!</p>
   ];
   const [displayedLines, setDisplayedLines]= React.useState<JSX.Element[]>([])
   React.useEffect(() => {
