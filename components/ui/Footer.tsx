@@ -12,7 +12,7 @@ const footer = () => {
                 <a href="https://www.linkedin.com/in/yamen-kashkash-25660a291/" target='_blank'>Linkedin</a>
             </li>
             <li>
-                <a href="https://www.kaggle.com/yesdodata" target='_blank'>Kaggle</a>
+                <a href="https://www.kaggle.com/code/yesdodata/phishbust" target='_blank'>Kaggle</a>
             </li>
         </ol>
     </div>

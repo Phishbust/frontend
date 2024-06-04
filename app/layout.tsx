@@ -18,6 +18,15 @@ const retina = Fira_Code({
 export const metadata: Metadata = {
   title: "Phishbust",
   description: "phishing detection using machine learning",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  keywords: "phishing, detection, machine learning",
+  authors: [{ name: "yesdo" }],
+  creator: "yesdo",
+  generator: "yesdo",
+  applicationName: "Phishbust",
+
 };
 
 export default function RootLayout({

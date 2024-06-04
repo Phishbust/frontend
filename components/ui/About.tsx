@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from "next/image";
-import how from '@/public/how.png';
+import Phishing from '@/public/phishing.jpg';
 const About = () => {
   return (
     <div className=' text-black flex flex-col-reverse lg:flex-row z-20 m-[60px] justify-around gap-20'>
@@ -17,7 +17,7 @@ const About = () => {
       
       </p>
       </div>
-      <Image src={how} alt="about"/>
+      <div className='lg:max-w-[40vw]'><Image src={Phishing} alt="about" loading='eager'/></div>
     </div>
   )
 }

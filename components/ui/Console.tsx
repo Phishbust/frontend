@@ -3,12 +3,13 @@ import { jsx } from 'react/jsx-runtime';
 
 type consoleprops = {
   Url: string,
-  Status: string,
-}
+  Status: boolean,
+  who: {}
+};
 
 
 
-const Console: React.FC<consoleprops> = ({Url, Status}) => {
+const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
   const lines = [
     <h1 className='text-[#5D666B]'>{'C://Phishbust > '}npm install Phishbust</h1>,
     <br/>,
@@ -19,7 +20,7 @@ const Console: React.FC<consoleprops> = ({Url, Status}) => {
     <h1 className='text-[#5D666B]'>{'C://Phishbust > '}Node PhishingChecker.js</h1>,
     <p>Welcome to Phishbust!</p>,
     <p>Your url is: {Url}</p>,
-    Status == 'safe' ? <p className='text-[#8BFE61]'>Your url is safe!</p> : <p className='text-[#FE616A]'>Your url is not safe!</p>
+    Status ? <p className='text-[#8BFE61]'>Your url is safe!</p> : <p className='text-[#FE616A]'>Your url is not safe!</p>
   ];
   const [displayedLines, setDisplayedLines]= React.useState<JSX.Element[]>([])
   React.useEffect(() => {
@@ -28,15 +29,12 @@ const Console: React.FC<consoleprops> = ({Url, Status}) => {
       if (currentLine < lines.length) {
         setDisplayedLines(prevLines => [...prevLines, lines[currentLine]])
         currentLine++
-      } else {
-        clearInterval(interval)
       }
-    }, 500)
-    
-    return () => clearInterval(interval)
-  }, [lines])
+    }, 500);
+    return () => clearInterval(interval);
+  }, []);
   return (
-    <div className='bg-[#12171A] z-20 mt-20 rounded-[8px] shadow-2xl w-full max-w-[656px] flex-1 p-5'>
+    <div className='bg-[#12171A] z-20 mt-20 rounded-[8px] shadow-2xl w-full lg:max-w-[40vw] flex-1 p-5'>
       <div className='flex flex-row justify-end w-full'>
       <svg className='' width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="3" cy="3" r="3" fill="#35CC4B"/>
@@ -45,7 +43,7 @@ const Console: React.FC<consoleprops> = ({Url, Status}) => {
       </svg>
       </div>
       <div>
-      {displayedLines.map((line, index) => (
+      {displayedLines.map((line,index) => (
         <div key={index}>{line}</div>))}
       </div>
     </div>
