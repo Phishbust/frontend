@@ -1,5 +1,4 @@
 import { mailOptions, transporter } from "@/config/nodemailer";
-import { NextResponse } from "next/server";
 const CONTACT_MESSAGE_FIELDS = {
   name: "Name",
   email: "Email",

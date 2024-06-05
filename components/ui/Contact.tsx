@@ -54,14 +54,14 @@ const Contact = () => {
               placeholder="First Name"
               value={Firstname}
               onChange={(e) => setFirstname(e.target.value)} 
-              className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+              className="w-1/2 p-2 border border-[#91A6B3] bg-white placeholder-[#3D4D57] rounded"
             />
             <input 
               type="text" 
               placeholder="Last Name"
               value={Lastname}
               onChange={(e) => setLastname(e.target.value)}
-              className="w-1/2 p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+              className="w-1/2 p-2 border border-[#91A6B3] bg-whiteplaceholder-[#3D4D57] rounded"
             />
           </div>
           <input 
@@ -69,13 +69,13 @@ const Contact = () => {
             placeholder="Email"
             value={Email}
             onChange={(e) => setEmail(e.target.value)} 
-            className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded"
+            className="w-full p-2 border border-[#91A6B3] bg-white placeholder-[#3D4D57] rounded"
           />
           <textarea 
             placeholder="Message"
             value={message}
             onChange={(e) => setmessage(e.target.value)}
-            className="w-full p-2 border border-[#91A6B3] bg-[#A8B8C2] placeholder-[#3D4D57] rounded h-32"
+            className="w-full p-2 border border-[#91A6B3] bg-white placeholder-[#3D4D57] rounded h-32"
           />
           <button 
             type="submit"

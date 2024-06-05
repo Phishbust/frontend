@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
                 <li className='hover:bg-slate-200 hover:text-black p-2 rounded'><button onClick={(e) => handleScroll(e, "how-it-works")}>How it Works</button></li>
                 <li className='hover:bg-slate-200 hover:text-black p-2 rounded'><button onClick={(e) => handleScroll(e, "contact-us")}>Contact Us</button></li>
             </ul>
-            <button className="inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" onClick={() => setBurger(!burger)}>
+            <button title="hamburger toggle" className="inline-flex md:hidden items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-black focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" onClick={() => setBurger(!burger)}>
                 <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                     <path stroke="#ffffff" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
