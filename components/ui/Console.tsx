@@ -4,12 +4,13 @@ import { jsx } from 'react/jsx-runtime';
 type consoleprops = {
   Url: string,
   Status: boolean,
-  who: {}
+  who: {},
+  close: () => void
 };
 
 
 
-const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
+const Console: React.FC<consoleprops> = ({Url, Status,who,close}) => {
   const lines = [
     <h1 className='text-[#5D666B]' key="A">{'C://Phishbust > '}npm install Phishbust</h1>,
     <br key="B"/>,
@@ -35,13 +36,13 @@ const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
   }, []);
   return (
     <div className='bg-[#12171A] z-20 mt-20 rounded-[8px] shadow-2xl w-full lg:max-w-[40vw] flex-1 p-5'>
-      <div className='flex flex-row justify-end w-full'>
+      <button onClick={close} className='flex flex-row justify-end w-full'>
       <svg className='' width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="3" cy="3" r="3" fill="#35CC4B"/>
         <circle cx="11" cy="3" r="3" fill="#FDBE41"/>
         <circle cx="19" cy="3" r="3" fill="#FC635D"/>
       </svg>
-      </div>
+      </button>
       <div>
       {displayedLines.map((line) => (
         <div>{line}</div>))}

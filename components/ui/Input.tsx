@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import Console from '@/components/ui/Console'
+import toast from 'react-hot-toast'
 
 const Input = () => {
   const [url,Seturl] = React.useState("")
@@ -18,7 +19,7 @@ const Input = () => {
         }
       }
     ).then((res) => {
-      if (!res.ok) throw new Error("Failed to send message");
+      if (!res.ok) toast.error("Failed to fetch data", {style:{background:"Black"}});
       return res.json();
     });
     return response;
@@ -51,11 +52,14 @@ const Input = () => {
       console.error('Error downloading JSON:', error);
     }
   };
+  const close = () => {
+    setsubmitted(false);
+  }
   return (
     <>
     <form onSubmit={e => handlesubmit(e)} className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
     <input
-      type="text"
+      type="url"
       name='link input'
       value={url}
       onChange={(e)=>Seturl(e.target.value)}
@@ -71,7 +75,7 @@ const Input = () => {
 </svg>
     </button>
   </form>
-  {submitted && (<><Console Url={url} Status={status} who={who} />
+  {submitted && (<><Console close={close} Url={url} Status={status} who={who} />
   <button type="button" onClick={handleClick} className='bg-[#1D8641] rounded-[7px] p-[10px] z-20 mt-[27px]'>Download Result</button></>)}
   </>
   )
