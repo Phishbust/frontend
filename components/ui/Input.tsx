@@ -23,7 +23,8 @@ const Input = () => {
     });
     return response;
   };
-  const handlesubmit = async () =>{
+  const handlesubmit = async (e) =>{
+    e.preventDefault();
     setsubmitted(false);
     const res = await fetchphishing();
     Setstatus(res.phishing)
@@ -52,7 +53,7 @@ const Input = () => {
   };
   return (
     <>
-    <div className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
+    <form onSubmit={e => handlesubmit(e)} className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
     <input
       type="text"
       name='link input'
@@ -62,14 +63,14 @@ const Input = () => {
       placeholder="Enter a link"
 
     />
-    <button title="submit button" onClick={handlesubmit} className="w-[60px] bg-green-500 hover:bg-green-600 text-white flex justify-center items-center rounded-r-md">
+    <button title="submit button" type='submit' className="w-[60px] bg-green-500 hover:bg-green-600 text-white flex justify-center items-center rounded-r-md">
     <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M30 55C43.8071 55 55 43.8071 55 30C55 16.1929 43.8071 5 30 5C16.1929 5 5 16.1929 5 30C5 43.8071 16.1929 55 30 55Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M30 40L40 30L30 20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M20 30H40" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 </svg>
     </button>
-  </div>
+  </form>
   {submitted && (<><Console Url={url} Status={status} who={who} />
   <button type="button" onClick={handleClick} className='bg-[#1D8641] rounded-[7px] p-[10px] z-20 mt-[27px]'>Download Result</button></>)}
   </>

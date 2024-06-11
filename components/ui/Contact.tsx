@@ -1,20 +1,38 @@
 "use client"
 import React from 'react'
-
-
+import loader from "@/public/loader.svg"
+import Image from 'next/image';
+import toast from 'react-hot-toast';
+import { error } from 'console';
+const notifySuccess = () => toast.success('Email Submitted succesfully!', {
+      duration: 2000,
+      style:{
+        background:'black',
+        color:'white',
+      }
+});
+const notifyFailure = (error) => toast.error(error, {
+  duration: 2000,
+  style:{
+    background:'black',
+    color:'white',
+  }
+});
 const Contact = () => {
       const [Firstname, setFirstname] = React.useState("");
       const [Lastname, setLastname] = React.useState("");
       const [Email, setEmail] = React.useState("");
       const [message, setmessage] = React.useState("");
-      const [isloading,loading] = React.useState(true);
+      const [loading,setloading] = React.useState(false);
       const HandleSubmit = async (e) => {
-            loading(true);
+            e.preventDefault();
+            setloading(true);
             await sendEmail(Firstname, Email, Lastname, message);
             setFirstname("");
             setLastname("");
             setEmail("");
             setmessage("");
+            setloading(false);
       };
       const sendEmail = (Firstname, Email,Lastname,message)=>{
             
@@ -33,8 +51,9 @@ const Contact = () => {
               headers: { "Content-Type": "application/json", Accept: "application/json" },
             }).then((res) => {
               if (!res.ok) throw new Error("Failed to send message");
+              notifySuccess();
               return res.json();
-            });
+            }).catch((error)=>notifyFailure(error.message))
            };
   return (
     <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center z-20">
@@ -47,7 +66,7 @@ const Contact = () => {
             <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
             <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don&apos;t hesitate in getting in touch with us!</p>
         </div>
-      <form onSubmit={(e)=>HandleSubmit(e).then(()=>loading(false))} className="space-y-4 z-20">
+      <form onSubmit={(e)=>HandleSubmit(e).then(()=>setloading(false))} className="space-y-4 z-20 text-black">
           <div className="flex space-x-4">
             <input 
               type="text" 
@@ -61,7 +80,7 @@ const Contact = () => {
               placeholder="Last Name"
               value={Lastname}
               onChange={(e) => setLastname(e.target.value)}
-              className="w-1/2 p-2 border border-[#91A6B3] bg-whiteplaceholder-[#3D4D57] rounded"
+              className="w-1/2 p-2 border border-[#91A6B3] bg-white placeholder-[#3D4D57] rounded"
             />
           </div>
           <input 
@@ -79,10 +98,10 @@ const Contact = () => {
           />
           <button 
             type="submit"
-            className="bg-blue-600 text-white font-bold p-2 rounded w-full disabled:bg-gray-800 disabled:cursor-not-allowed"
+            className="bg-blue-600 text-white flex justify-center items-center font-bold p-2 rounded w-full disabled:bg-gray-800 disabled:cursor-not-allowed"
             disabled={!Firstname || !Email || !Lastname || !message}
           >
-           Submit
+           {loading ? <Image src={loader} alt="loader" width={50}/> : "Submit"}
           </button>
         </form>
     </div>

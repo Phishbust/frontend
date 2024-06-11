@@ -11,16 +11,16 @@ type consoleprops = {
 
 const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
   const lines = [
-    <h1 className='text-[#5D666B]'>{'C://Phishbust > '}npm install Phishbust</h1>,
-    <br/>,
-    <p>
+    <h1 className='text-[#5D666B]' key="A">{'C://Phishbust > '}npm install Phishbust</h1>,
+    <br key="B"/>,
+    <p key="C">
       added <span className='text-[#35CC4B]'>1</span> package, and audited <span className='text-[#35CC4B]'>2</span> packages in <span className='text-[#35CC4B]'>1s</span>
     </p>,
-    <p>found <span className='text-[#35CC4B]'>0</span> vulnerabilities</p>,
-    <h1 className='text-[#5D666B]'>{'C://Phishbust > '}Node PhishingChecker.js</h1>,
-    <p>Welcome to Phishbust!</p>,
-    <p>Your url is: {Url}</p>,
-    Status ? <p className='text-[#FE616A]'>Your url is not safe!</p>: <p className='text-[#8BFE61]'>Your url is safe!</p>
+    <p key="D">found <span className='text-[#35CC4B]'>0</span> vulnerabilities</p>,
+    <h1 key="E" className='text-[#5D666B]'>{'C://Phishbust > '}Node PhishingChecker.js</h1>,
+    <p key="F">Welcome to Phishbust!</p>,
+    <p key="G">Your url is: {Url}</p>,
+    Status ? <p key="H" className='text-[#FE616A]'>Your url is not safe!</p>: <p key="I" className='text-[#8BFE61]'>Your url is safe!</p>
   ];
   const [displayedLines, setDisplayedLines]= React.useState<JSX.Element[]>([])
   React.useEffect(() => {
@@ -43,8 +43,8 @@ const Console: React.FC<consoleprops> = ({Url, Status,who}) => {
       </svg>
       </div>
       <div>
-      {displayedLines.map((line,index) => (
-        <div key={index}>{line}</div>))}
+      {displayedLines.map((line) => (
+        <div>{line}</div>))}
       </div>
     </div>
   )

@@ -72,12 +72,15 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+  .hidden-cursor{
+    cursor: none;
+  }
 }
-
 @layer base {
   * {
     @apply border-border;
-    @apply scrollbar-hide
+    @apply scrollbar-hide;
+    @apply hidden-cursor;
   }
   body {
     @apply bg-background text-foreground;
