@@ -76,6 +76,7 @@
     cursor: none;
   }
 }
+
 @layer base {
   * {
     @apply border-border;

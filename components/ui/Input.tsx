@@ -2,12 +2,14 @@
 import React from 'react'
 import Console from '@/components/ui/Console'
 import toast from 'react-hot-toast'
-
+import loader from '@/public/loader.svg'
+import Image from 'next/image'
 const Input = () => {
   const [url,Seturl] = React.useState("")
   const [status,Setstatus] = React.useState(false)
   const [submitted, setsubmitted] = React.useState(false)
   const [who, setWho] = React.useState({})
+  const [loading, setLoading] = React.useState(false);
   const fetchphishing = async () =>{
     const response = await fetch("/api/phishing",
       {
@@ -27,8 +29,10 @@ const Input = () => {
   const handlesubmit = async (e) =>{
     e.preventDefault();
     setsubmitted(false);
+    setLoading(true);
     const res = await fetchphishing();
     Setstatus(res.phishing)
+    setLoading(false);
     setsubmitted(true);
   }
   const handleClick = async () => {
@@ -68,11 +72,11 @@ const Input = () => {
 
     />
     <button title="submit button" type='submit' className="w-[60px] bg-green-500 hover:bg-green-600 text-white flex justify-center items-center rounded-r-md">
-    <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {loading ? <Image src={loader} alt="loader" width={30}/> : <svg width="30" height="30" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M30 55C43.8071 55 55 43.8071 55 30C55 16.1929 43.8071 5 30 5C16.1929 5 5 16.1929 5 30C5 43.8071 16.1929 55 30 55Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M30 40L40 30L30 20" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <path d="M20 30H40" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+</svg>}
     </button>
   </form>
   {submitted && (<><Console close={close} Url={url} Status={status} who={who} />

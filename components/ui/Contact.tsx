@@ -26,16 +26,10 @@ const Contact = () => {
       const [loading,setloading] = React.useState(false);
       const HandleSubmit = async (e) => {
             e.preventDefault();
-            setloading(true);
             await sendEmail(Firstname, Email, Lastname, message);
-            setFirstname("");
-            setLastname("");
-            setEmail("");
-            setmessage("");
-            setloading(false);
       };
-      const sendEmail = (Firstname, Email,Lastname,message)=>{
-            
+      const sendEmail = async (Firstname, Email,Lastname,message)=>{
+            setloading(true);
             if(!Firstname || !Email || !Lastname || !message){
                   alert("Please fill all the fields");
             };
@@ -53,7 +47,13 @@ const Contact = () => {
               if (!res.ok) throw new Error("Failed to send message");
               notifySuccess();
               return res.json();
-            }).catch((error)=>notifyFailure(error.message))
+            }).catch((error)=>notifyFailure(error.message)).finally(()=>{
+              setFirstname("");
+            setLastname("");
+            setEmail("");
+            setmessage("");
+            setloading(false);
+            })
            };
   return (
     <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center z-20">
@@ -66,7 +66,7 @@ const Contact = () => {
             <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
             <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don&apos;t hesitate in getting in touch with us!</p>
         </div>
-      <form onSubmit={(e)=>HandleSubmit(e).then(()=>setloading(false))} className="space-y-4 z-20 text-black">
+      <form onSubmit={(e)=>HandleSubmit(e)} className="space-y-4 z-20 text-black">
           <div className="flex space-x-4">
             <input 
               type="text" 
