@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     };
 
     return (
-        <nav className='sticky top-0 p-5 bg-black/60 backdrop-blur-md h-20 justify-between items-center flex flex-row z-30'>
+        <nav className='sticky top-0 p-5 bg-black/60 backdrop-blur-md h-20 justify-between items-center flex flex-row'>
             <Link href="/" className='flex flex-row items-center'>
                 <Image
                     src="/PhishBustW.png"

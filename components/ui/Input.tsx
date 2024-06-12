@@ -61,7 +61,7 @@ const Input = () => {
   }
   return (
     <>
-    <form onSubmit={e => handlesubmit(e)} className="flex w-[75%] max-w-2xl h-14 z-20 mt-20 shadow-2xl ">
+    <form onSubmit={e => handlesubmit(e)} className="flex w-[75%] max-w-2xl h-14 mt-20 shadow-2xl ">
     <input
       type="url"
       name='link input'

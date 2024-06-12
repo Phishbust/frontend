@@ -56,7 +56,7 @@ const Contact = () => {
             })
            };
   return (
-    <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center z-20">
+    <div className="bg-[#BEC3C6] p-20 flex flex-col lg:flex-row justify-evenly items-center">
         <div className="max-w-lg w-full relative">
         <svg width="300" height="300" viewBox="0 0 381 401" fill="none" className='absolute top-[-120px] left-[-200px]' xmlns="http://www.w3.org/2000/svg">
             <circle cx="180.5" cy="200.5" r="200" stroke="#0284C7"/>
@@ -66,7 +66,7 @@ const Contact = () => {
             <h2 className="text-5xl font-bold mb-4 text-[#013956]">Get In touch</h2>
             <p className="mb-6 text-[#013A56] font-normal text-2xl">Got an issue with using the tool? don&apos;t hesitate in getting in touch with us!</p>
         </div>
-      <form onSubmit={(e)=>HandleSubmit(e)} className="space-y-4 z-20 text-black">
+      <form onSubmit={(e)=>HandleSubmit(e)} className="space-y-4 text-black">
           <div className="flex space-x-4">
             <input 
               type="text" 

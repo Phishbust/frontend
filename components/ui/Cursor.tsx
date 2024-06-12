@@ -27,14 +27,14 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed w-4 h-4 bg-black rounded-full pointer-events-none z-50 max-md:hidden"
+        className="fixed w-4 h-4 bg-black rounded-full pointer-events-none max-md:hidden z-50"
         style={{
           x: cursorX,
           y: cursorY,
         }}
       />
       <motion.div
-        className="fixed w-10 h-10 bg-white mix-blend-difference rounded-full pointer-events-none z-50 max-md:hidden"
+        className="fixed w-10 h-10 bg-white mix-blend-exclusion rounded-full pointer-events-none max-md:hidden z-50"
         style={{
           x: trailingX,
           y: trailingY,
